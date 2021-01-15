@@ -1,0 +1,65 @@
+{
+  "name": "MenuStock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myApp.js",
+  "dependencies": {
+    "electron-debug": "^3.2.0",
+    "menubar": "^9.0.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.9.1",
+    "electron": "^11.2.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build",
+    "build:osx": "build --mac",
+    "build:win32": "build --win --ia32",
+    "build:win64": "build --win --ia64"
+  },
+  "build": {
+    "productName": "MenuStock",
+    "appId": "com.electron.MenuStock",
+    "asar": true, 
+    "protocols" : {
+        "name" : "MenuStock",
+        "schemes" : ["MenuStock"]
+    },
+    "mac": { 
+      "target": [
+        "default"
+      ]
+    },
+    "dmg": {
+      "title": "MenuStock"
+    },
+    "win": {  
+      "target": [ 
+        "zip",  
+        "nsis"  
+      ]
+    },
+    "linux": { 
+      "target": [
+        "AppImage", 
+        "deb",
+        "rpm",
+        "zip",
+        "tar.gz"
+      ]
+    },
+    "nsis":{
+      "oneClick" : false,
+      "allowToChangeInstallationDirectory" :true 
+    },
+    "directories": {
+      "buildResources": "resources/installer/",
+      "output": "dist/",
+      "app": "."
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
